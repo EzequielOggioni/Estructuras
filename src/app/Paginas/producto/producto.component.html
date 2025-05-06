@@ -13,7 +13,7 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>precio</mat-label>
-        <input type="number" matInput name="precio" placeholder="precio del producto"
+        <input type="number" matInput name="precio" (keypress)="log($event)" placeholder="precio del producto"
             [(ngModel)]="this.miProducto._precio">
     </mat-form-field>
     <mat-form-field class="example-full-width">

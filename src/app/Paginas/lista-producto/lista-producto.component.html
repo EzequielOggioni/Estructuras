@@ -1,13 +1,6 @@
 <div  *ngIf="this.productos.length>0">
     <div *ngFor="let prod of this.productos;let i=index;let odd=odd;let even= even;">
-        <mat-card appearance="outlined" [ngClass]="{fondo:even,color:i<4,fondo2:odd,color2:i>3}">
-            <mat-card-content>{{prod._nombre}} - {{prod._precio}} - {{prod._moneda}}
-                <div class="example-button-container ">
-                    <button mat-fab aria-label="Example icon button with a delete icon" (click)="editar(prod._id)">
-                      <mat-icon>edit</mat-icon>
-                    </button>
-                  </div>    
-            </mat-card-content>
-        </mat-card>
+        <app-producto-detalle [miAtributo]="prod" [indice]="i" [odd]="odd" 
+        (edita)="editar($event)" ></app-producto-detalle>
     </div>
 </div>
