@@ -1,6 +1,6 @@
-<div  *ngIf="this.productos.length>0">
+<div *ngIf="this.productos.length>0">
     <div *ngFor="let prod of this.productos;let i=index;let odd=odd;let even= even;">
-        <app-producto-detalle [miAtributo]="prod" [indice]="i" [odd]="odd" 
-        (edita)="editar($event)" ></app-producto-detalle>
+        <app-producto-detalle [miAtributo]="prod" [indice]="i" [odd]="odd"
+            (edita)="editar($event)"></app-producto-detalle>
     </div>
 </div>

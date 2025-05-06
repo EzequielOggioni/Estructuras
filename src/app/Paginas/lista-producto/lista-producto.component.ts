@@ -17,11 +17,11 @@ import { ProductoService } from '../../servicios/producto.service';
 export class ListaProductoComponent {
   public productos: Array<Producto>;
 
-  constructor(public route:Router, public productoService:ProductoService ) {
+  constructor(public route: Router, public productoService: ProductoService) {
     this.productos = this.productoService.Producto;
   }
 
-  public editar(id:number){
+  public editar(id: number) {
     this.route.navigateByUrl("producto/" + id.toString());
   }
 }

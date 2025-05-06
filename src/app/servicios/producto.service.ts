@@ -6,17 +6,16 @@ import { Producto } from '../Clases/producto';
 })
 export class ProductoService {
 
-  private _productos:Array<Producto>;
-  constructor() { 
+  private _productos: Array<Producto>;
+  constructor() {
     this._productos = JSON.parse(localStorage.getItem("productos") ?? '[]');
   }
 
-  public get Producto() :Array<Producto> {
+  public get Producto(): Array<Producto> {
     return this._productos;
   }
 
-  public getProductos(): void 
-  {
+  public getProductos(): void {
     this._productos = JSON.parse(localStorage.getItem("productos") ?? '[]')
   }
 

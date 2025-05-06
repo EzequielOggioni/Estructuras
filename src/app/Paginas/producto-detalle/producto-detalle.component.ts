@@ -8,28 +8,28 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-producto-detalle',
-  imports: [FormsModule,MatInputModule,MatCardModule, MatIconModule, CommonModule],
+  imports: [FormsModule, MatInputModule, MatCardModule, MatIconModule, CommonModule],
   templateUrl: './producto-detalle.component.html',
   styleUrl: './producto-detalle.component.css'
 })
 export class ProductoDetalleComponent {
 
   @Input('miAtributo')
-  public miProducto:Producto=new Producto();
+  public miProducto: Producto = new Producto();
 
   @Input('indice')
-  public i:number=0;
+  public i: number = 0;
 
   @Input()
-  public odd:boolean=false;
-  
-  @Output() edita  = new EventEmitter<number>();
+  public odd: boolean = false;
 
-  public get even():boolean{
+  @Output() edita = new EventEmitter<number>();
+
+  public get even(): boolean {
     return !this.odd;
   }
 
-  public editar(){
+  public editar() {
     this.edita.emit(this.miProducto._id);
 
   }
