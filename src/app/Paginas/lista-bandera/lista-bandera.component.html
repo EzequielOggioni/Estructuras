@@ -1,0 +1,15 @@
+<p>Lista de banderas</p>
+<div class="row">
+    <p>Filtro por continente</p>
+    <select class="col-md-6"[(ngModel)]="this.continente" >
+        <option *ngFor="let cont of this.continentes" [value]="cont">{{cont}}</option>
+    </select>
+</div>
+<div class="row">
+    <p>Filtro por pais</p><input class="col-md-6" type="text" [(ngModel)]="this.filtro">
+</div>
+<div class="row">
+    <div class="col-md-1" *ngFor="let bandera of (this.lista.banderas | filtroBandera  :this.filtro) | filtrocontinente :this.continente">
+        <app-bandera [pais]="bandera"></app-bandera>
+    </div>
+</div>
