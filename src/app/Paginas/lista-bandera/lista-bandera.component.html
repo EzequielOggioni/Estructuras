@@ -1,15 +1,20 @@
 <p>Lista de banderas</p>
 <div class="row">
-    <p>Filtro por continente</p>
-    <select class="col-md-6"[(ngModel)]="this.continente" >
+    <input *ngIf="!this.jugando" class="col-md-2" type="button" value="Comezar" (click)="comezar()" >
+    <img *ngIf="this.jugando" class="col-md-2" [src]=" this.paisMisterioso.bandera"> {{this.tiempo}}
+</div>
+<div class="row">
+    <label>Filtro por continente
+    <select class="col-md-6"[(ngModel)]="this.continente" > 
         <option *ngFor="let cont of this.continentes" [value]="cont">{{cont}}</option>
-    </select>
+    </select> </label><label style="color: green;" *ngIf="this.jugando && this.continente == this.paisMisterioso.continente" >  OK </label>
 </div>
 <div class="row">
-    <p>Filtro por pais</p><input class="col-md-6" type="text" [(ngModel)]="this.filtro">
+    <label>Filtro por pais <input class="col-md-6" type="text" [(ngModel)]="this.filtro"> </label>
 </div>
-<div class="row">
-    <div class="col-md-1" *ngFor="let bandera of (this.lista.banderas | filtroBandera  :this.filtro) | filtrocontinente :this.continente">
-        <app-bandera [pais]="bandera"></app-bandera>
+<br>
+<div class="row" >
+    <div  class="col-md-1" *ngFor="let bandera of (this.lista.banderas | filtroBandera  :this.filtro) | filtrocontinente :this.continente">
+        <app-bandera (click)="this.elegir(bandera)" [pais]="bandera"></app-bandera>
     </div>
 </div>
