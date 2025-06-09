@@ -18,6 +18,12 @@ export class BanderasService {
       error: (error) => { console.log(error); alert(error.status) }
     }
     );
+    http.get("https://egos-facturaapi.mdbgo.io/Todos/").subscribe(
+      {
+        next:(data) => console.info(data),
+        error:(err) => console.log(err)
+      }
+    )
   }
 
 

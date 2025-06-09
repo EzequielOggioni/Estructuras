@@ -1,0 +1,8 @@
+<form  [formGroup]="miForm" (ngSubmit)="aceptar()">
+    <input  type="text" formControlName='nombre' >
+    <p  *ngIf="miForm.controls['nombre'].touched && miForm.controls['nombre'].errors 
+    && miForm.controls['nombre'].errors['required'] " >escribir aca arriba </p>
+    <p  *ngIf="miForm.controls['nombre'].touched && miForm.controls['nombre'].errors 
+    && miForm.controls['nombre'].errors['maxlength']">muchas letras </p>
+    <button>Aceptar</button>
+</form>
