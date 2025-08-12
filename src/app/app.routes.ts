@@ -4,6 +4,7 @@ import { ListaProductoComponent } from './Paginas/lista-producto/lista-producto.
 import { ListaBanderaComponent } from './Paginas/lista-bandera/lista-bandera.component';
 import { UsuarioComponent } from './Paginas/usuario/usuario.component';
 import { GmailauthComponent } from './Paginas/gmailauth/gmailauth.component';
+import { DataFirestorageComponent } from './Paginas/data-firestorage/data-firestorage.component';
 
 export const routes: Routes = [
     { path: '', component: ProductoComponent },
@@ -12,5 +13,7 @@ export const routes: Routes = [
     { path: 'listaProducto', component: ListaProductoComponent },
     { path: 'banderas', component: ListaBanderaComponent },
     { path: 'usuario', component: UsuarioComponent },    
-    { path: 'test', component: GmailauthComponent}
+    { path: 'loguear', component: GmailauthComponent},
+    { path: 'bbdd', component: DataFirestorageComponent},
+
 ];
