@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, addDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, 
+  getDocs, onSnapshot, query, where } from "firebase/firestore";
 
 @Component({
   selector: 'app-data-firestorage',
@@ -18,7 +19,10 @@ export class DataFirestorageComponent {
 
     this.app = initializeApp(firebaseConfig);
     this.db = getFirestore(this.app);
-    this.leer();
+    
+    
+    //this.leer();
+    
     let q = query(collection(this.db, "Usuarios"),where('nombre','>=','A'));
     let unsubscribe = onSnapshot(q, (querySnapshot) => {
       this.datos = [];
@@ -30,15 +34,15 @@ export class DataFirestorageComponent {
 
   }
 
-  async leer() {
-    const querySnapshot = await getDocs(collection(this.db, "Usuarios"));
-    querySnapshot.forEach((doc) => {
-      this.datos.push({ data: doc.data(), id: doc.id });
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
+  // async leer() {
+  //   const querySnapshot = await getDocs(collection(this.db, "Usuarios"));
+  //   querySnapshot.forEach((doc) => {
+  //     this.datos.push({ data: doc.data(), id: doc.id });
+  //     console.log(`${doc.id} => ${doc.data()}`);
+  //   });
 
 
-  }
+  // }
 
   async agregar() {
 
@@ -66,4 +70,4 @@ const firebaseConfig = {
   messagingSenderId: "104066751373",
   appId: "1:104066751373:web:d00b397d9159a42a8cbbc4",
   measurementId: "G-K04JNBH0KC"
-};
+}; 

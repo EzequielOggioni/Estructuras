@@ -1,0 +1,7 @@
+<p>chat works!</p>
+<div *ngFor="let mensaje of mensajes">
+    <p>{{mensaje.persona}} {{mensaje.texto}}</p>
+</div>
+<input type="text" [(ngModel)]="usuario" placeholder="usuario">
+<input type="text" [(ngModel)]="texto" placeholder="texto">
+<input type="button" (click)="this.agregar()" value="Agregar">

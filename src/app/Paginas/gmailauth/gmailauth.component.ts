@@ -32,7 +32,8 @@ export class GmailauthComponent {
         // The signed-in user info.
         const user = result.user;
         console.info(user);
-        localStorage.setItem('usuario','{email:'+ user.email + ',nombre:'+ user.displayName + ',id:'+ user.uid+ '}' );
+        localStorage.setItem('usuario','{email:'+ user.email + ',nombre:'+ user.displayName 
+          + ',id:'+ user.uid+ '}' );
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       }).catch((error) => {
@@ -44,6 +45,7 @@ export class GmailauthComponent {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
+        localStorage.setItem('usuario','');
       });
   }
 

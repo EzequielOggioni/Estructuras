@@ -5,9 +5,10 @@ import { ListaBanderaComponent } from './Paginas/lista-bandera/lista-bandera.com
 import { UsuarioComponent } from './Paginas/usuario/usuario.component';
 import { GmailauthComponent } from './Paginas/gmailauth/gmailauth.component';
 import { DataFirestorageComponent } from './Paginas/data-firestorage/data-firestorage.component';
+import { ChatComponent } from './Paginas/chat/chat.component';
 
 export const routes: Routes = [
-    { path: '', component: ProductoComponent },
+    { path: '', component: ChatComponent },
     { path: 'producto', component: ProductoComponent },
     { path: 'producto/:idProducto', component: ProductoComponent },
     { path: 'listaProducto', component: ListaProductoComponent },
