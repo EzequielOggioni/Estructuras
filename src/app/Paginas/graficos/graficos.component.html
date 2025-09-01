@@ -1,7 +1,9 @@
-<input type="button" (click)="grafico()">
+<input type="button" (click)="grafico()" value="Generar grafico">
 
-<div *ngIf="this.mostrar" class="col-5">
-
-  <canvas #myChart></canvas>
-  <canvas #myChartPie></canvas>
+<div id="pdfPrinter" *ngIf="this.mostrar" class="col-5">
+    <p>hola mundo</p>
+    <canvas #myChart></canvas>
+    <canvas #myChartPie></canvas>
 </div>
+
+<input type="button" (click)="downloadPDF()" value="Imprimir PDF">
