@@ -19,10 +19,11 @@ export class GmailauthComponent {
     this.auth = getAuth(this.app);
 
 
-    
+
   }
   entrar() {
 
+    localStorage.setItem('usuario', '');
     signInWithPopup(this.auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -32,8 +33,8 @@ export class GmailauthComponent {
         // The signed-in user info.
         const user = result.user;
         console.info(user);
-        localStorage.setItem('usuario','{email:'+ user.email + ',nombre:'+ user.displayName 
-          + ',id:'+ user.uid+ '}' );
+        localStorage.setItem('usuario', '{"email":"' + user.email + '","nombre":"' + user.displayName
+          + '","id":"' + user.uid + '"}');
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       }).catch((error) => {
@@ -45,14 +46,30 @@ export class GmailauthComponent {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
-        localStorage.setItem('usuario','');
       });
   }
 
-  verUsuario(){}
-   
-}
+  verUsuario() {
 
+    this.downloadCsv('hola;mundo\n1;5', 'mundo.csv');
+  }
+
+
+
+
+  downloadCsv(data: string, filename: string = 'data.csv'): void {
+    const csvContent = data;//this.convertJsonToCsv(data);
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = window.URL.createObjectURL(blob);
+
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.setAttribute('download', filename);
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  }
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyDK_n7c75wZANDreY2gW4sRiQj8xSZlnz4",

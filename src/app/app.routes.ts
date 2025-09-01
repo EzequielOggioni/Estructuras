@@ -6,15 +6,17 @@ import { UsuarioComponent } from './Paginas/usuario/usuario.component';
 import { GmailauthComponent } from './Paginas/gmailauth/gmailauth.component';
 import { DataFirestorageComponent } from './Paginas/data-firestorage/data-firestorage.component';
 import { ChatComponent } from './Paginas/chat/chat.component';
+import { autorizadoGuard, noAutorizadoGuard } from './guard/autorizado.guard';
+import { GraficosComponent } from './Paginas/graficos/graficos.component';
 
 export const routes: Routes = [
     { path: '', component: ChatComponent },
     { path: 'producto', component: ProductoComponent },
     { path: 'producto/:idProducto', component: ProductoComponent },
     { path: 'listaProducto', component: ListaProductoComponent },
-    { path: 'banderas', component: ListaBanderaComponent },
-    { path: 'usuario', component: UsuarioComponent },    
-    { path: 'loguear', component: GmailauthComponent},
-    { path: 'bbdd', component: DataFirestorageComponent},
-
+    { path: 'banderas', component: ListaBanderaComponent, canActivate: [autorizadoGuard] },
+    { path: 'usuario', component: UsuarioComponent },
+    { path: 'loguear', component: GmailauthComponent, canDeactivate: [noAutorizadoGuard] },
+    { path: 'bbdd', component: DataFirestorageComponent },
+    { path: 'grafico', component: GraficosComponent }
 ];
